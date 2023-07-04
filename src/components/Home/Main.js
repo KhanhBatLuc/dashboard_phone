@@ -20,7 +20,7 @@ const Main = () => {
   const [res, setRes] = useState({});
 
   const handleDownload = async () => {
-    const res = await axios.get(`/api/orders/all`);
+    const res = await axios.get(`https://be-phone.onrender.com/api/orders/all`);
     if (res.data?.data?.file) {
       const linkSource = res.data.data.file;
       const downloadLink = document.createElement("a");
@@ -37,7 +37,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("/api/orders/filter/2023-0-1/2023-11-31");
+      const result = await axios.get("https://be-phone.onrender.com/api/orders/filter/2023-0-1/2023-11-31");
       setData(result.data);
       renderChart();
     };

@@ -36,7 +36,7 @@ const MainCategories = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await axios.get("/api/category/all");
+    const res = await axios.get("https://be-phone.onrender.com/api/category/all");
     if (res.status === 200) {
       setListCategory(res.data);
     }
@@ -52,7 +52,7 @@ const MainCategories = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/category", {
+    const res = await axios.post("https://be-phone.onrender.com/api/category", {
       name: formCategory.name,
       isShow: formCategory.isShow,
       description: formCategory.description,
@@ -70,7 +70,7 @@ const MainCategories = () => {
 
   const updateForm = async (e) => {
     e.preventDefault();
-    const res = await axios.put(`/api/category/${idEdit}`, {
+    const res = await axios.put(`https://be-phone.onrender.com/api/category/${idEdit}`, {
       name: formCategory.name,
       isShow: formCategory.isShow,
       description: formCategory.description,
@@ -86,7 +86,7 @@ const MainCategories = () => {
   };
 
   const handleChangeShowItem = async (id, showItem) => {
-    const res = await axios.put(`/api/category/status/${id}`, {
+    const res = await axios.put(`https://be-phone.onrender.com/api/category/status/${id}`, {
       isShow: !showItem,
     });
     if (res.status === 200) {
@@ -96,7 +96,7 @@ const MainCategories = () => {
   };
 
   const deleteItem = async (id) => {
-    const res = await axios.delete(`/api/category/${id}`);
+    const res = await axios.delete(`https://be-phone.onrender.com/api/category/${id}`);
     if (res.status === 200) {
       toast.success("Xóa Danh Mục Thành Công !!");
       await fetchData();
@@ -104,7 +104,7 @@ const MainCategories = () => {
   };
 
   const handleEditItem = async (id) => {
-    const res = await axios.get(`/api/category/${id}`);
+    const res = await axios.get(`https://be-phone.onrender.com/api/category/${id}`);
     if (res.status === 200) {
       setFormCategory({
         name: res.data.name,

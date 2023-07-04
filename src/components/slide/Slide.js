@@ -3,6 +3,7 @@ import { imageUpload, imageShow } from "../../ulities/imageUpload";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { URL } from "../../Redux/Url";
 
 const Slide = () => {
   const [form, setForm] = useState({
@@ -28,7 +29,7 @@ const Slide = () => {
   }, []);
 
   const initData = async () => {
-    const res = await axios.get("/api/category/all/banner");
+    const res = await axios.get(`${URL}/api/category/all/banner`);
     if (res.status == 200) {
       setListBanner(res.data);
     }
@@ -48,7 +49,7 @@ const Slide = () => {
     if (form.linkImg === "" || form.linkPage === "") {
       toast.error("Vui lòng không để trống");
     } else {
-      const res = await axios.put(`/api/category/banner/${idUpdate}`, form);
+      const res = await axios.put(`${URL}/api/category/banner/${idUpdate}`, form);
       if (res.status === 200) {
         toast.success("Thành Công");
         setForm({
@@ -65,7 +66,7 @@ const Slide = () => {
     if (form.linkImg === "" || form.linkPage === "") {
       toast.error("Vui lòng không để trống");
     } else {
-      const res = await axios.post("/api/category/banner", form);
+      const res = await axios.post(`${URL}/api/category/banner`, form);
       if (res.status === 200) {
         toast.success("Thành Công");
         setForm({
@@ -79,7 +80,7 @@ const Slide = () => {
   };
 
   const handleDelete = async (id) => {
-    const res = await axios.delete(`/api/category/banner/delete/${id}`);
+    const res = await axios.delete(`${URL}/api/category/banner/delete/${id}`);
     if (res.status === 200) {
       toast.success("Xóa Thành Công");
       await initData();
@@ -87,7 +88,7 @@ const Slide = () => {
   };
 
   const handleEdit = async (id) => {
-    const res = await axios.get(`/api/category/banner-detail/${id}`);
+    const res = await axios.get(`${URL}/api/category/banner-detail/${id}`);
     if (res.status === 200) {
       setForm({
         linkImg: res.data.linkImg,
