@@ -6,9 +6,9 @@ import ProductsStatistics from "./ProductsStatistics";
 import { useSelector } from "react-redux";
 import { CSVLink, CSVDownload } from "react-csv";
 import axios from "axios";
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 import { useState, useEffect } from "react";
-import { Bar } from 'react-chartjs-2';
+// import { Bar } from 'react-chartjs-2';
 import { monthNames } from "../../ulities/imageUpload";
 
 const Main = () => {
@@ -92,12 +92,12 @@ const Main = () => {
         <TopTotal orders={orders} products={products} />
         <div className="row">
         <div className="col-xl-12 col-lg-12">
-      <div className="card mb-4 shadow-sm">
+      {/* <div className="card mb-4 shadow-sm">
         <article className="card-body">
           <h5 className="card-title">Thống kê theo tháng</h5>
           {<Bar data={renderChart()} />}
         </article>
-      </div>
+      </div> */}
     </div>
         </div>
         <div className="row">
