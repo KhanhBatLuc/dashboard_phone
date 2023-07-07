@@ -10,7 +10,7 @@ import Loading from "../LoadingError/Loading";
 import axios from "axios";
 import CropEasy from "../crop/CropEasy";
 import { imageShow, imageUpload } from "../../ulities/imageUpload";
-import { URL } from "../../Redux/Url";
+// import { URL } from "../../Redux/Url";
 
 const ToastObjects = {
   pauseOnFocusLoss: false,
@@ -42,7 +42,7 @@ const AddProductMain = () => {
 
   useEffect(() => {
     return new Promise(async () => {
-      const res = await axios.get(`${URL}/api/category/all/status/no`);
+      const res = await axios.get(`https://be-phone.onrender.com/api/category/all/status/no`);
       if (res.status === 200) {
         setListCategory(res.data);
       }
